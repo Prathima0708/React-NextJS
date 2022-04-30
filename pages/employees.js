@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
+import Add from "../src/components/Add";
+import Employees from "../src/components/Employees";
 
 export default function Home() {
   return (
@@ -11,8 +12,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="text-4xl text-center">Welcome to Aroha</h1>
-        <Link href="/employees">Click here</Link> to view all employees
+        <h1 className="text-4xl text-center">Welcome to Aroha Employees</h1>
+        <Employees />
+        <Add />
       </main>
     </div>
   );
