@@ -1,8 +1,8 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -17,4 +17,19 @@ a {
 
 * {
   box-sizing: border-box;
+} */
+
+
+.App{
+  min-height: 100vh;
+  background-color: #39445a;
+  color: white;
+  padding-top: 130px;
+  padding-bottom: 70px;
+
+}
+@media (max-width:700px){
+  .App{
+    padding-top: 70px;
+  }
 }

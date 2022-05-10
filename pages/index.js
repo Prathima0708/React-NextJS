@@ -75,13 +75,33 @@
 
 import People from "../src/Zustand Example/components/People"
 import Link from "next/link"
+import Header from "../src/Movies/Header/Header"
+
+import SimpleBottomNavigation from "../src/Movies/MainNav"
+import { Container } from "@mui/material"
 function HomePage(){
 
   return (
     <>
-    <p>List of People</p>
+    {/* <p>List of People</p>
     <Link href="/peoplelist">Click here</Link>
-    
+     */}
+<Header />
+<div className="App">
+<Container>
+ <Link href="/">Trending</Link>
+ <Link href="/movies">Movies</Link>
+ <Link href="/series">TV Series</Link>
+ <Link href="/search">Search</Link>
+ 
+</Container>
+</div>
+
+
+
+<SimpleBottomNavigation />
+
+
     </>
   )
 }
