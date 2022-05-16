@@ -92,6 +92,8 @@ function HomePage(){
  
  <Link href="/trending">Trending</Link>
  <Link href="/movies">Movies</Link>
+ <Link href="/tv">Tv Series</Link>
+ <Link href="/search">Search</Link>
 </Container>
 </div>
 

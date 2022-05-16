@@ -50,7 +50,7 @@ router.push('/')
           setValue(newValue);
         }}
       >
-   <BottomNavigationAction icon={<WhatshotIcon />} label="Trending"  style={{ color: "white" }} ></BottomNavigationAction>
+   <BottomNavigationAction icon={<WhatshotIcon />} label="Trending"   style={{ color: "white" }} ></BottomNavigationAction>
    <BottomNavigationAction label="Movies" icon={<MovieIcon/>}   style={{ color: "white" }} />
         <BottomNavigationAction label="TV Series" icon={<TvIcon />}  style={{ color: "white" }} />
         <BottomNavigationAction label="Search" icon={<SearchIcon />}  style={{ color: "white" }} />
