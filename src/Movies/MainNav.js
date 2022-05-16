@@ -1,6 +1,8 @@
 import * as React from 'react';
-import Link from 'next/link';
+import {useRouter} from 'next/router'
+import { useEffect } from 'react';
 import Box from '@mui/material/Box';
+
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 
@@ -25,11 +27,18 @@ const useStyles = makeStyles({
 
 
 export default function SimpleBottomNavigation() {
+ const router=useRouter()
   const classes=useStyles()
   const [value, setValue] = React.useState(0);
  
 
-
+useEffect(() => {
+ if(value===0)
+router.push('/')
+ else if(value===1) router.push('/movies')
+ else if(value===2) router.push('/tv')
+ else if(value===3) router.push('/search')
+}, [value])
 
 
   return (
@@ -41,8 +50,8 @@ export default function SimpleBottomNavigation() {
           setValue(newValue);
         }}
       >
-      <BottomNavigationAction label="Trending" icon={<WhatshotIcon />}  style={{ color: "white" }} />
-        <BottomNavigationAction label="Movies" icon={<MovieIcon/>}  style={{ color: "white" }} />
+   <BottomNavigationAction icon={<WhatshotIcon />} label="Trending"  style={{ color: "white" }} ></BottomNavigationAction>
+   <BottomNavigationAction label="Movies" icon={<MovieIcon/>}   style={{ color: "white" }} />
         <BottomNavigationAction label="TV Series" icon={<TvIcon />}  style={{ color: "white" }} />
         <BottomNavigationAction label="Search" icon={<SearchIcon />}  style={{ color: "white" }} />
       </BottomNavigation>

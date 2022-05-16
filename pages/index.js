@@ -14,7 +14,7 @@
 //         <h1 className="text-4xl text-center">Welcome to Aroha</h1>
 //         <Link href="/employees">Click here</Link> to view all employees
 //       </main>
-//     </div>
+//     </div>  
 //   );
 // }
 
@@ -89,14 +89,11 @@ function HomePage(){
 <Header />
 <div className="App">
 <Container>
- <Link href="/">Trending</Link>
- <Link href="/movies">Movies</Link>
- <Link href="/series">TV Series</Link>
- <Link href="/search">Search</Link>
  
+ <Link href="/trending">Trending</Link>
+ <Link href="/movies">Movies</Link>
 </Container>
 </div>
-
 
 
 <SimpleBottomNavigation />
