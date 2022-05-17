@@ -1,14 +1,14 @@
-import Layout from '../Udemy-Example/components/layout/Layout';
+import Layout from '../src/Movies/layout/Layout'
 import '../styles/globals.css';
 import SimpleBottomNavigation from '../src/Movies/MainNav';
 
 function MyApp({ Component, pageProps }) {
   return (
-    // <Layout>
+    <Layout>
    
       <Component {...pageProps} />
     
-    //  </Layout>
+     </Layout>
   );
 }
 

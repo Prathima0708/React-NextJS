@@ -25,22 +25,50 @@ const tv = () => {
   useEffect(() => {
     fetchMovies();
   }, [page,genreforURL]);
-  return (
-    <div className='pageTitle'>
+//   return (
+//     <div className='pageTitle'>
+//     TV Series
+
+//     <Genres
+//         type="tv"
+//         selectedGenres={selectedGenres}
+//         setSelectedGenres={setSelectedGenres}
+//         genres={genres}
+//         setGenres={setGenres}
+//         setPage={setPage}
+//       />
+
+//     <div className='uppercase flex justify-center'>
+//     <div className='flex flex-wrap justify-around'>
+//       {content && content.map((c)=>    <SingleContent
+//               key={c.id}
+//               id={c.id}
+//               poster={c.poster_path}
+//               title={c.title || c.name}
+//               date={c.first_air_date || c.release_date}
+//               media_type="tv"
+//               vote_average={c.vote_average}
+//             />)}
+//     </div>
+//       <CustomPagination setPage={setPage} />
+//     </div>
+  
+// </div>
+//   )
+
+return (
+  <div className="pageTitle">
     TV Series
-
     <Genres
-        type="tv"
-        selectedGenres={selectedGenres}
-        setSelectedGenres={setSelectedGenres}
-        genres={genres}
-        setGenres={setGenres}
-        setPage={setPage}
-      />
-
-    <div className='uppercase flex justify-center'>
-    <div className='flex flex-wrap justify-around'>
-      {content && content.map((c)=>    <SingleContent
+      type="tv"
+      selectedGenres={selectedGenres}
+      setSelectedGenres={setSelectedGenres}
+      genres={genres}
+      setGenres={setGenres}
+      setPage={setPage}
+    />
+    <div className="flex flex-wrap justify-around">
+    {content && content.map((c)=>    <SingleContent
               key={c.id}
               id={c.id}
               poster={c.poster_path}
@@ -50,11 +78,11 @@ const tv = () => {
               vote_average={c.vote_average}
             />)}
     </div>
-      <CustomPagination setPage={setPage} />
-    </div>
-  
-</div>
-  )
+    <CustomPagination setPage={setPage} />
+  </div>
+);
+
+
 }
 
 export default tv

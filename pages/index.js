@@ -78,7 +78,8 @@ import Link from "next/link"
 import Header from "../src/Movies/Header/Header"
 
 import SimpleBottomNavigation from "../src/Movies/MainNav"
-import { Container } from "@mui/material"
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import { BottomNavigationAction, Container } from "@mui/material"
 function HomePage(){
 
   return (
@@ -86,19 +87,20 @@ function HomePage(){
     {/* <p>List of People</p>
     <Link href="/peoplelist">Click here</Link>
      */}
-<Header />
+{/* <Header /> */}
 <div className="App">
 <Container>
  
- <Link href="/trending">Trending</Link>
- <Link href="/movies">Movies</Link>
+
+  
+ {/* <Link href="/movies">Movies</Link>
  <Link href="/tv">Tv Series</Link>
- <Link href="/search">Search</Link>
+ <Link href="/search">Search</Link> */}
 </Container>
 </div>
 
 
-<SimpleBottomNavigation />
+
 
 
     </>

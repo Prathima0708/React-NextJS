@@ -21,9 +21,29 @@ const [content, setContent] = useState([])
     fetchTrending()
   }, [page])
 
+  // return (
+  //   <div className='uppercase flex justify-center'>
+  //   <div className='flex flex-wrap justify-around'>
+  //     {content && content.map((c)=>    <SingleContent
+  //             key={c.id}
+  //             id={c.id}
+  //             poster={c.poster_path}
+  //             title={c.title || c.name}
+  //             date={c.first_air_date || c.release_date}
+  //             media_type={c.media_type}
+  //             vote_average={c.vote_average}
+  //           />)}
+  //   </div>
+  //     <CustomPagination setPage={setPage} />
+  //   </div>
+  // )
+
+
   return (
-    <div className='uppercase flex justify-center'>
-    <div className='flex flex-wrap justify-around'>
+    <div className="pageTitle">
+      Trending
+    
+      <div className="flex flex-wrap justify-around">
       {content && content.map((c)=>    <SingleContent
               key={c.id}
               id={c.id}
@@ -33,10 +53,12 @@ const [content, setContent] = useState([])
               media_type={c.media_type}
               vote_average={c.vote_average}
             />)}
-    </div>
+      </div>
+      
       <CustomPagination setPage={setPage} />
+      
     </div>
-  )
+  );
 }
 
 export default trending
