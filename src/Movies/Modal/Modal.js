@@ -45,9 +45,12 @@ export default function ContentModal({children,media_type,id}) {
   }
 
   const fecthVideo=async()=>{
-    const {data}=await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/videos/?api_key=e6ab9cb5f394d693d47a56721ddcd9a5&language=en-US`)
+    // const {data}=await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/videos/?api_key=e6ab9cb5f394d693d47a56721ddcd9a5&language=en-US`)
+
+    const {data}=await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=e6ab9cb5f394d693d47a56721ddcd9a5&language=en-US`)
+
     console.log(data)
-    setVideo(data.results[0]?.key)
+    setVideo(data.results[0]?.key);
 }
 
 useEffect(() => {
@@ -94,7 +97,7 @@ useEffect(() => {
         {content.overview}
     </span>
     <div>
-<Carousel />
+<Carousel media_type={media_type} id={id} />
     </div>
  <Button variant='contained' startIcon={<YouTubeIcon/>} color='secondary' target='_blank' href={`https://www.youtube.com/watch?v=${video}`}>Watch the Trailer</Button>
 </div>

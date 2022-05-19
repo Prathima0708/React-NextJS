@@ -5,7 +5,7 @@ function MainNavigation() {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo} href="/">Movies</div>
+      <div className={classes.logo} onClick={()=>window.scroll(0,0)} style={{cursor:'pointer'}} >Entertainment Hub</div>
       <nav>
         <ul>
           <li>
