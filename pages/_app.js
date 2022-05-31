@@ -1,6 +1,7 @@
-import Layout from '../src/Movies/layout/Layout'
+
 import '../styles/globals.css';
 import SimpleBottomNavigation from '../src/Movies/MainNav';
+import Layout from '../components/layout/Layout';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -8,7 +9,7 @@ function MyApp({ Component, pageProps }) {
    
       <Component {...pageProps} />
     
-     </Layout>
+      </Layout>
   );
 }
 

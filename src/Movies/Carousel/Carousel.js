@@ -23,9 +23,9 @@ const Carousel = ({media_type,id}) => {
         src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
         alt={c?.name}
         onDragStart={handleDragStart}
-        className={classes.carouselItem__img}
+        
       />
-      <b className={classes.carouselItem__txt}>{c?.name}</b>
+      <b >{c?.name}</b>
     </div>
   ));
 

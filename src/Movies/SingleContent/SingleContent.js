@@ -42,14 +42,14 @@ const SingleContent = ({
         color={vote_average > 6 ? "primary" : "secondary"}
       />
       <img
-        className="poster"
+        className={classes.poster}
         src={poster ? `${img_300}${poster}` : unavailable}
         alt={title}
       />
-      <b className="title">{title}</b>
-      <span className="subTitle">
+      <b className={classes.title}>{title}</b>
+      <span className={classes.subTitle}>
         {media_type === "tv" ? "TV Series" : "Movie"}
-        <span className="subTitle">{date}</span>
+        <span className={classes.subTitle}>{date}</span>
       </span>
     </ContentModal>
   );

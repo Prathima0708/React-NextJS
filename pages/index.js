@@ -80,26 +80,46 @@ import Header from "../src/Movies/Header/Header"
 import SimpleBottomNavigation from "../src/Movies/MainNav"
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import { BottomNavigationAction, Container } from "@mui/material"
-function HomePage(){
+import MeetupList from "../components/meetups/MeetupList";
+import React, { useEffect, useState } from "react";
+const DUMMY_MEETUPS = [
+  {
+    id: 'm1',
+    title: 'A First Meetup',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
+    address: 'Some address 5, 12345 Some City',
+    description: 'This is a first meetup!'
+  },
+  {
+    id: 'm2',
+    title: 'A Second Meetup',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
+    address: 'Some address 10, 12345 Some City',
+    description: 'This is a second meetup!'
+  }
+];
+function HomePage(props){
+
 
   return (
     <>
-    {/* <p>List of People</p>
-    <Link href="/peoplelist">Click here</Link>
-     */}
+     {/* <h1 className="text-4xl text-center">Welcome to Aroha</h1>
+        <Link href="/employees">Click here</Link> to view all employees */}
+    
 {/* <Header /> */}
-<div className="App">
-<Container>
+{/* <div className="App">
+<Container> */}
  
 
   
  {/* <Link href="/movies">Movies</Link>
  <Link href="/tv">Tv Series</Link>
  <Link href="/search">Search</Link> */}
-</Container>
-</div>
+{/* </Container>
+</div> */}
 
 
+<MeetupList meetups={props.meetups}/>
 
 
 
@@ -107,7 +127,30 @@ function HomePage(){
   )
 }
 
-export default HomePage
+
+export async function getStaticProps(){
+  //fetch data from an api
+  return {
+    props:{
+      meetups:DUMMY_MEETUPS
+    },
+    revalidate:10
+  }
+
+}
+
+// export async function getServerSideProps(context){
+//   const req=context.req
+//   const res=context.res
+//   //fetch data from an api
+//   return{
+//     props:{
+//       meetups:DUMMY_MEETUPS
+//     }
+//   }
+// }
+
+export default HomePage;
 
 
 
