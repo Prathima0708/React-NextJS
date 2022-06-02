@@ -1,8 +1,34 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 @import "react-alice-carousel/lib/alice-carousel.css";
+
+
+:root {
+  --text-color: #124a63;
+  --text-color-secondary: #b3c5cd;
+
+  --primary-color: #21b6b7;
+
+  --background-color: #f9f9f9;
+  --background-color-dark: #eef3f6;
+  --background-color-light: white;
+
+  --font-family: "Poppins", sans-serif;
+  --box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --text-color: #f0f0f0;
+  --text-color-secondary: #b3c5cd;
+
+  --primary-color: #21b6b7;
+
+  --background-color: #252329;
+  --background-color-dark: #3c393f;
+  --background-color-light: #120f13;
+}
 
 html,
 body {
@@ -11,6 +37,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     /* background-color: #39445a; */
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 a {
@@ -35,4 +63,10 @@ a {
   .App{
     padding-top: 70px;
   }
+}
+
+.page-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
 }

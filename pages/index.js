@@ -14,7 +14,7 @@
 //         <h1 className="text-4xl text-center">Welcome to Aroha</h1>
 //         <Link href="/employees">Click here</Link> to view all employees
 //       </main>
-//     </div>  
+//     </div>
 //   );
 // }
 
@@ -22,122 +22,91 @@
 
 
 
-
-
-
-// import Head from "next/head";
-// import MeetupList from "../Udemy-Example/components/meetups/MeetupList";
-
+import MeetupList from "../components/meetups/MeetupList";
+import React from "react";
+import FizzBuzz from "../components/Practice/FizzBuzz";
+import SearchText from "../components/Practice/SearchText";
+import ShowHide from "../components/Practice/ShowHide";
+import styles from "../styles/Home.module.css"
+import ToolBar from "../components/NewsApp/ToolBar";
+import Layout from "../components/Countries/Layout/Layout";
+import SearchInput from "../components/Countries/SearchInput/SearchInput";
+import CountriesTable from "../components/Countries/CountriesTable/CountriesTable";
 // const DUMMY_MEETUPS = [
 //   {
-//     id: 'm1',
-//     title: 'A First Meetup',
-//     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
-//     address: 'Some address 5, 12345 Some City',
-//     description: 'This is a first meetup!'
+//     id: "m1",
+//     title: "A First Meetup",
+//     image:
+//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg",
+//     address: "Some address 5, 12345 Some City",
+//     description: "This is a first meetup!",
 //   },
 //   {
-//     id: 'm2',
-//     title: 'A Second Meetup',
-//     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
-//     address: 'Some address 10, 12345 Some City',
-//     description: 'This is a second meetup!'
-//   }
+//     id: "m2",
+//     title: "A Second Meetup",
+//     image:
+//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg",
+//     address: "Some address 10, 12345 Some City",
+//     description: "This is a second meetup!",
+//   },
 // ];
-
-// function HomePage(props)
-// {
-  
-//   return(
-//     <>
-// <Head>
-// <title>React Meetups</title>
-// <meta name="description" content="Browse a huge list of highly active React Meetups" />
-// </Head>
-// <MeetupList meetups={props.meetups} />
-//     </>
-//   )
-// }
-
-// export async function getStaticProps(){
-//   //fetch data from API
-//   return{
-//     props:{
-//       meetups:DUMMY_MEETUPS
-//     },
-//     revalidate:1
-//   }
-// }
-
-// export default HomePage
-
-
-
-import People from "../src/Zustand Example/components/People"
-import Link from "next/link"
-import Header from "../src/Movies/Header/Header"
-
-import SimpleBottomNavigation from "../src/Movies/MainNav"
-import WhatshotIcon from '@mui/icons-material/Whatshot';
-import { BottomNavigationAction, Container } from "@mui/material"
-import MeetupList from "../components/meetups/MeetupList";
-import React, { useEffect, useState } from "react";
-const DUMMY_MEETUPS = [
-  {
-    id: 'm1',
-    title: 'A First Meetup',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
-    address: 'Some address 5, 12345 Some City',
-    description: 'This is a first meetup!'
-  },
-  {
-    id: 'm2',
-    title: 'A Second Meetup',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
-    address: 'Some address 10, 12345 Some City',
-    description: 'This is a second meetup!'
-  }
-];
-function HomePage(props){
-
-
+function HomePage({countries}) {
+  console.log(countries)
   return (
     <>
-     {/* <h1 className="text-4xl text-center">Welcome to Aroha</h1>
-        <Link href="/employees">Click here</Link> to view all employees */}
     
-{/* <Header /> */}
-{/* <div className="App">
-<Container> */}
- 
 
-  
- {/* <Link href="/movies">Movies</Link>
- <Link href="/tv">Tv Series</Link>
- <Link href="/search">Search</Link> */}
-{/* </Container>
-</div> */}
+      {/* <MeetupList meetups={props.meetups} /> */}
 
+      {/* <div className={styles.pagecontainer}>
+     <ToolBar />
 
-<MeetupList meetups={props.meetups}/>
+      <div className={styles.main}>
+        <h1>Next.js News App</h1>
 
+        <h3>Your one stop shop for the latest news articles</h3>
+      </div>
+    </div> */}
 
-
+    <Layout>
+      <div className={styles.counts}>Found {countries.length} countries</div>
+      <SearchInput placeholder="Filter by Name,Region or SubRegion"  />
+      <CountriesTable countries={countries} />
+    </Layout>
     </>
-  )
+  );
 }
 
 
-export async function getStaticProps(){
-  //fetch data from an api
+
+
+
+
+
+
+
+export const getStaticProps = async () => {
+  const res = await fetch("https://restcountries.com/v3.1/all");
+  const countries = await res.json();
+
   return {
-    props:{
-      meetups:DUMMY_MEETUPS
+    props: {
+      countries
     },
-    revalidate:10
-  }
-
+  };
 }
+
+
+
+// export async function getStaticProps() {
+//   //fetch data from an api
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//     revalidate: 10,
+//   };
+// }
 
 // export async function getServerSideProps(context){
 //   const req=context.req
@@ -151,11 +120,3 @@ export async function getStaticProps(){
 // }
 
 export default HomePage;
-
-
-
-
-
-
-
-
