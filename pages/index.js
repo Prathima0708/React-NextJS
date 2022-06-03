@@ -71,7 +71,7 @@ function HomePage({countries}) {
     <Layout>
       <div className={styles.counts}>Found {countries.length} countries</div>
       <SearchInput placeholder="Filter by Name,Region or SubRegion"  />
-      <CountriesTable countries={countries} />
+      {/* <CountriesTable countries={countries} /> */}
     </Layout>
     </>
   );
