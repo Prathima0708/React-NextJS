@@ -18,16 +18,12 @@
 //   );
 // }
 
-
-
-
-
 import MeetupList from "../components/meetups/MeetupList";
-import React from "react";
+import React, { useState } from "react";
 import FizzBuzz from "../components/Practice/FizzBuzz";
 import SearchText from "../components/Practice/SearchText";
 import ShowHide from "../components/Practice/ShowHide";
-import styles from "../styles/Home.module.css"
+import styles from "../styles/Home.module.css";
 import ToolBar from "../components/NewsApp/ToolBar";
 import Layout from "../components/Countries/Layout/Layout";
 import SearchInput from "../components/Countries/SearchInput/SearchInput";
@@ -50,12 +46,32 @@ import CountriesTable from "../components/Countries/CountriesTable/CountriesTabl
 //     description: "This is a second meetup!",
 //   },
 // ];
-function HomePage({countries}) {
-  console.log(countries)
+function HomePage({ countries }) {
+  console.log(countries);
+  const [keyword, setKeyword] = useState(" ");
+
+  // const filteredCountries =
+  //   countries.filter((country) =>
+  //     country.name.common.toLowerCase().includes(keyword)
+  //   ) ||
+  //   country.region.toLowerCase().includes(keyword) ||
+  //   country.subregion.toLowerCase().includes(keyword);
+
+  const filteredCountries = countries.filter(
+    (country) =>
+      country.name.common.toLowerCase().includes(keyword) ||
+      country.region.toLowerCase().includes(keyword)
+      // country.subregion.toLowerCase().includes(keyword)
+  );
+
+  const onInputChange = (e) => {
+    e.preventDefault();
+
+    setKeyword(e.target.value.toLowerCase());
+  };
+
   return (
     <>
-    
-
       {/* <MeetupList meetups={props.meetups} /> */}
 
       {/* <div className={styles.pagecontainer}>
@@ -68,22 +84,17 @@ function HomePage({countries}) {
       </div>
     </div> */}
 
-    <Layout>
-      <div className={styles.counts}>Found {countries.length} countries</div>
-      <SearchInput placeholder="Filter by Name,Region or SubRegion"  />
-      {/* <CountriesTable countries={countries} /> */}
-    </Layout>
+      <Layout>
+        <div className={styles.counts}>Found {countries.length} countries</div>
+        <SearchInput
+          placeholder="Filter by Name,Region or SubRegion"
+          onChange={onInputChange}
+        />
+        <CountriesTable countries={filteredCountries} />
+      </Layout>
     </>
   );
 }
-
-
-
-
-
-
-
-
 
 export const getStaticProps = async () => {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -91,12 +102,10 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      countries
+      countries,
     },
   };
-}
-
-
+};
 
 // export async function getStaticProps() {
 //   //fetch data from an api

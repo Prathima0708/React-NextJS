@@ -1,75 +1,88 @@
-import React from 'react'
-import styles from './CountriesTable.module.css'
-import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import React, { useState } from "react";
+import styles from "./CountriesTable.module.css";
+import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
+import Link from "next/link";
 
-const orderBy=(countries,direction)=>{
-    if(direction==='asc'){
-        return [...countries].sort((a,b)=>a.population>b.population?1:-1)
+const orderBy = (countries, value, direction) => {
+  if (direction === "asc") {
+    return [...countries].sort((a, b) => (a[value] > b[value] ? 1 : -1));
+  }
+  if (direction === "desc") {
+    return [...countries].sort((a, b) => (a[value] > b[value] ? -1 : 1));
+  }
+  return countries;
+};
+
+const SortArrow = ({ direction }) => {
+  if (!direction) {
+    return <></>;
+  }
+  if (direction === "desc") {
+    return (
+      <div className={styles.heading_arrow}>
+        <KeyboardArrowDownRoundedIcon color="inherit" />
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.heading_arrow}>
+        <KeyboardArrowUpRoundedIcon color="inherit" />
+      </div>
+    );
+  }
+};
+
+const CountriesTable = ({ countries }) => {
+  const [direction, setDirection] = useState();
+  const [value, setValue] = useState();
+
+  const orderedCountries = orderBy(countries, value, direction);
+
+  const switchDirection = () => {
+    if (!direction) {
+      setDirection("desc");
+    } else if (direction === "desc") {
+      setDirection("asc");
+    } else {
+      setDirection(null);
     }
-    if(direction==='desc'){
-        return [...countries].sort((a,b)=>a.population>b.population?-1:1)
-    }
-    return countries
-    
-}
+  };
 
-const sortArrow=({direction})=>{
-if(!direction){
-    return <></>
-}
-if(direction==='desc'){
-    return(
-<div className={styles.heading_arrow}>
-                <KeyboardArrowDownRoundedIcon color='inherit' />
-                </div>
-    )
-    
-}else{
-    return(
-        <div className={styles.heading_arrow}>
-                <KeyboardArrowDownRoundedIcon color='inherit' />
-                </div>
-    )
-}
-}
-
-const CountriesTable = ({countries}) => {
-   const orderedCountries=orderBy(countries,"desc")
+  const setValueAndDirection = () => {
+    switchDirection();
+    setValue(value);
+  };
   return (
     <div>
-        <div className={styles.heading}>
-            <button className={styles.heading_name}>
-                <div>Name</div>
-                <div className={styles.heading_arrow}>
-                <KeyboardArrowDownRoundedIcon color='inherit' />
-                </div>
-              
-            </button>
+      <div className={styles.heading}>
+        <button
+          className={styles.heading_name}
+          onClick={() => setValueAndDirection("name")}
+        >
+          <div>Name</div>
+          <SortArrow />
+        </button>
 
-            <button className={styles.heading_population}>
-                <div>Population</div>
-                <div className={styles.heading_arrow}>
-                <KeyboardArrowDownRoundedIcon color='inherit'/>
-                </div>
-            </button>
+        <button
+          className={styles.heading_population}
+          onClick={() => setValueAndDirection("population")}
+        >
+          <div>Population</div>
+          <SortArrow direction={direction} />
+        </button>
+      </div>
+      {orderedCountries.map((country) => (
+       <Link href={`/country/${country.alpha3Code}`}>
+        <div className={styles.row}>
+          <div className={styles.name}>{country.name.common}</div>
 
+          <div className={styles.population}>{country.population}</div>
         </div>
-        {orderedCountries.map((country) => (
-        
-          <div className={styles.row}>
-       
-           
-           
-            <div className={styles.name}>{country.name.common}</div>
-
-            <div className={styles.population}>{country.population}</div>
-
-         
-          </div>
-    
+       </Link>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default CountriesTable
+export default CountriesTable;
