@@ -10,6 +10,7 @@ const Country = ({country}) => {
         <div>
             <div className={styles.overview_panel}>
                 <img src={country.flag}/>
+                <h1>{country.population}</h1>
             </div>
         </div>
     </Layout>
@@ -19,7 +20,7 @@ const Country = ({country}) => {
 
 
 export const getServerSideProps=async({params})=>{
-    const res=await fetch(`https://restcountries.com/v3.1/alpa`)
+    const res=await fetch(`https://restcountries.com/v2/alpha/${params.id}`)
     const country=await res.json()
     return{
         props:{
