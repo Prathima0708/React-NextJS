@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles'
 import { green, purple, red } from '@mui/material/colors';
 
-const value=window.innerWidth
+// const value=window.innerWidth
 
 const Responsive = styled("div")(({ theme }) => ({
     [theme.breakpoints.up("sm")]: {

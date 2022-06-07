@@ -1,6 +1,10 @@
 // import Head from "next/head";
 // import Link from "next/link";
 
+import Dictionary from "../components/Dictionary/Dictionary"
+import MaterialUI from "../components/MaterialUI/MaterialUI"
+import PizzaList from "../components/PizzaOrder/components/PizzaList/PizzaList"
+import Slider from "../components/PizzaOrder/components/Slider/Slider"
 import MUI from "../components/Practice/MUI"
 
 // export default function Home() {
@@ -127,7 +131,10 @@ import MUI from "../components/Practice/MUI"
 function HomePage(){
 return(
   <>
-  <MUI />
+{/* 
+ <Slider />
+ <PizzaList/> */}
+<Dictionary />
   </>
 )
 }
