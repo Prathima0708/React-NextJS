@@ -2,17 +2,17 @@ import { MenuItem, TextField } from '@mui/material'
 import React from 'react'
 import styles from './Header.module.css'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import categories from './Data/category';
+import categories from '../Data/category';
 
-const Header = ({category,setCategory,word,setWord}) => {
+const Header = ({category,setCategory,word,setWord,lightMode}) => {
    
 
 const darkTheme = createTheme({
   palette: {
       primary:{
-          main:'#fff'
+          main:lightMode?'#000':'#fff'
       },
-    mode: 'dark',
+    mode:lightMode?'light': 'dark',
   },
 });
 const handleChange=(language)=>{

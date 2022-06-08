@@ -6,6 +6,7 @@ import MaterialUI from "../components/MaterialUI/MaterialUI"
 import PizzaList from "../components/PizzaOrder/components/PizzaList/PizzaList"
 import Slider from "../components/PizzaOrder/components/Slider/Slider"
 import MUI from "../components/Practice/MUI"
+import Quiz from "../components/QuizApp/Quiz"
 
 // export default function Home() {
 //   return (
@@ -134,7 +135,9 @@ return(
 {/* 
  <Slider />
  <PizzaList/> */}
-<Dictionary />
+{/* <Dictionary /> */}
+
+<Quiz />
   </>
 )
 }
