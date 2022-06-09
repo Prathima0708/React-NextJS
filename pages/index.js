@@ -139,9 +139,9 @@ return(
  <Slider />
  <PizzaList/> */}
 {/* <Dictionary /> */}
-{/* 
-<Quiz /> */}
-<SearchAfterSomeTime />
+
+<Quiz />
+
   </>
 )
 }
