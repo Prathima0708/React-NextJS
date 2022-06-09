@@ -7,25 +7,24 @@ import Categories from "../Data/Categories";
 import { useRouter } from "next/router";
 import ErrorMessage from "../ErrorMessage";
 
-const Home = ({name,setName,fetchQuestions,setShow}) => {
-  const [category,setCategory]=useState("")
-  const [difficulty,setDifficulty]=useState("")
-  const [error,setError]=useState(false)
+const Home = ({ name, setName, fetchQuestions, setShow }) => {
+  const [category, setCategory] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+  const [error, setError] = useState(false);
 
-  const router=useRouter()
+  const router = useRouter();
 
-  const handleSubmit=()=>{
-    if(!category || !difficulty || !name){
-      setError(true)
-      return
-    }
-    else{
-      setError(false)
-      fetchQuestions(category,difficulty)
+  const handleSubmit = () => {
+    if (!category || !difficulty || !name) {
+      setError(true);
+      return;
+    } else {
+      setError(false);
+      fetchQuestions(category, difficulty);
       // router.push('/quiz')
-      setShow(true)
+      setShow(true);
     }
-  }
+  };
   return (
     <div className={styles.content}>
       <div className={styles.settings}>
@@ -36,14 +35,14 @@ const Home = ({name,setName,fetchQuestions,setShow}) => {
             id="standard-basic"
             label="Enter your name"
             variant="standard"
-            onChange={(e)=>setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <TextField
             select
             label="Select Category"
             variant="outlined"
             style={{ marginBottom: 30 }}
-            onChange={(e)=>setCategory(e.target.value)}
+            onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
             {Categories.map((cat) => (
@@ -58,7 +57,7 @@ const Home = ({name,setName,fetchQuestions,setShow}) => {
             label="Select Difficulty"
             variant="outlined"
             style={{ marginBottom: 30 }}
-            onChange={(e)=>setDifficulty(e.target.value)}
+            onChange={(e) => setDifficulty(e.target.value)}
             value={difficulty}
           >
             <MenuItem key="Easy" value="easy">
@@ -72,7 +71,12 @@ const Home = ({name,setName,fetchQuestions,setShow}) => {
             </MenuItem>
           </TextField>
 
-          <Button variant="contained" color="primary" size="large" onClick={handleSubmit}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={handleSubmit}
+          >
             Start Quiz
           </Button>
         </div>
@@ -83,7 +87,6 @@ const Home = ({name,setName,fetchQuestions,setShow}) => {
         className={styles.banner}
         alt="quiz app"
       />
-      
     </div>
   );
 };
