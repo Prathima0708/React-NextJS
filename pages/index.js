@@ -140,7 +140,9 @@ return(
  <PizzaList/> */}
 {/* <Dictionary /> */}
 
-<Quiz />
+{/* <Quiz /> */}
+
+<MaterialUI />
 
   </>
 )

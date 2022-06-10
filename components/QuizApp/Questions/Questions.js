@@ -37,7 +37,7 @@ const Questions = ({
 
   const handleNext = () => {
     if (currQues > 8) {
-    //   router.push("/quiz/results");
+      router.push("/quiz/results");
     } else if (selected) {
       setCurrQues(currQues + 1);
       setSelected("");
@@ -79,7 +79,7 @@ const Questions = ({
             Quit
           </Button>
           <Button
-            variant="contained"
+            variant="contained" className='text-black bg-blue-400'
             color="primary"
             size="large"
             style={{ width: "185" }}

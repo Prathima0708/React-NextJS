@@ -43,7 +43,7 @@ const Quiz = () => {
 
         {/* <Link href='/Quiz'>Quiz</Link>
      <Link href='/Quiz/results'>Results</Link> */}
-        {/* <Result score={score} name={name} /> */}
+        <Result score={score} name={name} />
       </div>
       <Footer />
     </>

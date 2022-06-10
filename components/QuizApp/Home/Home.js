@@ -32,16 +32,16 @@ const Home = ({ name, setName, fetchQuestions, setShow }) => {
         <div className={styles.settings_select}>
           {error && <ErrorMessage>Please fill all the fields</ErrorMessage>}
           <TextField
-            id="standard-basic"
+            id="standard-basic" className="mr-3"
             label="Enter your name"
             variant="standard"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)} 
           />
           <TextField
             select
             label="Select Category"
             variant="outlined"
-            style={{ marginBottom: 30 }}
+            style={{ marginBottom: 30,width:'170px',marginRight:'20px' }}
             onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
@@ -56,9 +56,9 @@ const Home = ({ name, setName, fetchQuestions, setShow }) => {
             select
             label="Select Difficulty"
             variant="outlined"
-            style={{ marginBottom: 30 }}
+            style={{ marginBottom: 30,width:'170px' }}
             onChange={(e) => setDifficulty(e.target.value)}
-            value={difficulty}
+            value={difficulty} 
           >
             <MenuItem key="Easy" value="easy">
               Easy
@@ -75,7 +75,7 @@ const Home = ({ name, setName, fetchQuestions, setShow }) => {
             variant="contained"
             color="primary"
             size="large"
-            onClick={handleSubmit}
+            onClick={handleSubmit} className='text-black bg-blue-400'
           >
             Start Quiz
           </Button>
