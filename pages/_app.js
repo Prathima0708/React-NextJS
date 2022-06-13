@@ -1,18 +1,13 @@
-
-import Layout from '../components/PizzaOrder/components/Layout';
-import Header from '../components/QuizApp/Header/Header';
-import '../styles/globals.css';
-
-
+import Layout from "../components/PizzaOrder/components/Layout";
+import Header from "../components/QuizApp/Header/Header";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    // <Layout>
-
+    <Layout>
       <Component {...pageProps} />
-  
-      // </Layout>
+    </Layout>
   );
 }
 
-export default MyApp; 
+export default MyApp;

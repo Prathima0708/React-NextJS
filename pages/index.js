@@ -1,15 +1,15 @@
 // import Head from "next/head";
 // import Link from "next/link";
 
-import Dictionary from "../components/Dictionary/Dictionary"
-import MaterialUI from "../components/MaterialUI/MaterialUI"
-import PizzaList from "../components/PizzaOrder/components/PizzaList/PizzaList"
-import Slider from "../components/PizzaOrder/components/Slider/Slider"
-import FetchAPIData from "../components/Practice/FetchAPIData"
-import MUI from "../components/Practice/MUI"
-import RepeatElements from "../components/Practice/RepeatElements"
-import SearchAfterSomeTime from "../components/Practice/SearchAfterSomeTime"
-import Quiz from "../components/QuizApp/Quiz"
+import Dictionary from "../components/Dictionary/Dictionary";
+import MaterialUI from "../components/MaterialUI/MaterialUI";
+import PizzaList from "../components/PizzaOrder/components/PizzaList/PizzaList";
+import Slider from "../components/PizzaOrder/components/Slider/Slider";
+import FetchAPIData from "../components/Practice/FetchAPIData";
+import MUI from "../components/Practice/MUI";
+import RepeatElements from "../components/Practice/RepeatElements";
+import SearchAfterSomeTime from "../components/Practice/SearchAfterSomeTime";
+import Quiz from "../components/QuizApp/Quiz";
 
 // export default function Home() {
 //   return (
@@ -27,8 +27,6 @@ import Quiz from "../components/QuizApp/Quiz"
 //     </div>
 //   );
 // }
-
-
 
 // const DUMMY_MEETUPS = [
 //   {
@@ -51,8 +49,6 @@ import Quiz from "../components/QuizApp/Quiz"
 // function HomePage({ countries }) {
 //   console.log(countries);
 //   const [keyword, setKeyword] = useState(" ");
-
-  
 
 //   const filteredCountries = countries.filter(
 //     (country) =>
@@ -127,25 +123,18 @@ import Quiz from "../components/QuizApp/Quiz"
 
 // export default HomePage;
 
+function HomePage() {
+  return (
+    <>
+      <Slider />
+      <PizzaList />
+      {/* <Dictionary /> */}
 
+      {/* <Quiz /> */}
 
-
-
-
-function HomePage(){
-return(
-  <>
-{/* 
- <Slider />
- <PizzaList/> */}
-{/* <Dictionary /> */}
-
-{/* <Quiz /> */}
-
-<MaterialUI />
-
-  </>
-)
+      {/* <MaterialUI /> */}
+    </>
+  );
 }
 
-export default HomePage
+export default HomePage;
