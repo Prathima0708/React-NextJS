@@ -5,10 +5,13 @@ import Dictionary from "../components/Dictionary/Dictionary";
 import MaterialUI from "../components/MaterialUI/MaterialUI";
 import PizzaList from "../components/PizzaOrder/components/PizzaList/PizzaList";
 import Slider from "../components/PizzaOrder/components/Slider/Slider";
+import Addition from "../components/Practice/Addition";
 import FetchAPIData from "../components/Practice/FetchAPIData";
 import MUI from "../components/Practice/MUI";
+import ReactVersion from "../components/Practice/ReactVersion";
 import RepeatElements from "../components/Practice/RepeatElements";
 import SearchAfterSomeTime from "../components/Practice/SearchAfterSomeTime";
+import ShowAlert from "../components/Practice/ShowAlert";
 import Quiz from "../components/QuizApp/Quiz";
 
 // export default function Home() {
@@ -133,6 +136,7 @@ function HomePage() {
       {/* <Quiz /> */}
 
       {/* <MaterialUI /> */}
+      {/* <ShowAlert /> */}
     </>
   );
 }
