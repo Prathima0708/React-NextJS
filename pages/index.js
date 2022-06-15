@@ -1,18 +1,9 @@
 // import Head from "next/head";
 // import Link from "next/link";
 
-import Dictionary from "../components/Dictionary/Dictionary";
-import MaterialUI from "../components/MaterialUI/MaterialUI";
-import PizzaList from "../components/PizzaOrder/components/PizzaList/PizzaList";
-import Slider from "../components/PizzaOrder/components/Slider/Slider";
-import Addition from "../components/Practice/Addition";
-import FetchAPIData from "../components/Practice/FetchAPIData";
-import MUI from "../components/Practice/MUI";
-import ReactVersion from "../components/Practice/ReactVersion";
-import RepeatElements from "../components/Practice/RepeatElements";
-import SearchAfterSomeTime from "../components/Practice/SearchAfterSomeTime";
-import ShowAlert from "../components/Practice/ShowAlert";
-import Quiz from "../components/QuizApp/Quiz";
+import NotesList from "../components/NotesApp/NotesList";
+import styles from "../components/NotesApp/Notes.module.css";
+import { useState } from "react";
 
 // export default function Home() {
 //   return (
@@ -127,16 +118,33 @@ import Quiz from "../components/QuizApp/Quiz";
 // export default HomePage;
 
 function HomePage() {
+  const [notes, setNotes] = useState([
+    {
+      id: Math.floor(Math.random() * 10),
+      text: "This is my first Note",
+      date: "15/06/2022",
+    },
+    {
+      id: Math.floor(Math.random() * 10),
+      text: "This is my second Note",
+      date: "15/06/2022",
+    },
+    {
+      id: Math.floor(Math.random() * 10),
+      text: "This is my third Note",
+      date: "15/06/2022",
+    },
+  ]);
   return (
     <>
-      <Slider />
-      <PizzaList />
+      {/* <Slider />
+      <PizzaList /> */}
       {/* <Dictionary /> */}
 
       {/* <Quiz /> */}
-
-      {/* <MaterialUI /> */}
-      {/* <ShowAlert /> */}
+      <div className={styles.contaimer}>
+        <NotesList notes={notes} />
+      </div>
     </>
   );
 }
