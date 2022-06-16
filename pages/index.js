@@ -4,6 +4,11 @@
 import NotesList from "../components/NotesApp/NotesList";
 import styles from "../components/NotesApp/Notes.module.css";
 import { useState } from "react";
+import WeatherApp from "../components/WeatherApp/WeatherApp";
+import Counter from "../components/Practice/Counter";
+import SearchBar from "../components/CryptoCurrency/SearchBar";
+import Coins from "../components/CryptoCurrency/Coins";
+import CoinList from "../components/CryptoCurrency/CoinList";
 
 // export default function Home() {
 //   return (
@@ -117,7 +122,7 @@ import { useState } from "react";
 
 // export default HomePage;
 
-function HomePage() {
+function HomePage({ filteredCoins }) {
   const [notes, setNotes] = useState([
     {
       id: Math.floor(Math.random() * 10),
@@ -142,11 +147,26 @@ function HomePage() {
       {/* <Dictionary /> */}
 
       {/* <Quiz /> */}
-      <div className={styles.contaimer}>
+      {/* <div className={styles.contaimer}>
         <NotesList notes={notes} />
-      </div>
+      </div> */}
+
+      <SearchBar type="text" placeholder="search" />
+      <CoinList filteredCoins={filteredCoins} />
     </>
   );
 }
 
 export default HomePage;
+
+export const getServerSideProps = async () => {
+  const res = await fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
+  );
+  const filteredCoins = await res.json();
+  return {
+    props: {
+      filteredCoins,
+    },
+  };
+};
