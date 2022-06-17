@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./Notes.module.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const Note = () => {
+const Note = ({ text, id, date }) => {
   return (
     <div className={styles.note}>
-      <span>Hello !This is our first note</span>
+      <span>{text}</span>
       <div className={styles.note_footer}>
-        <small>15/06/2022</small>
+        <small>{date}</small>
         <DeleteIcon className={styles.delete_icon} />
       </div>
     </div>
