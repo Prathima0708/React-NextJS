@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styles from "./Notes.module.css";
 
-const AddNote = ({ onAddNote }) => {
+const AddNote = ({ onAddNote, onDeleteNote }) => {
   const [noteText, setNoteText] = useState("");
   const characterLimit = 200;
   const handleChange = (e) => {

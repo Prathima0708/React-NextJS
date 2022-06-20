@@ -42,6 +42,10 @@ body {
     color: var(--text-color); */
     /* background-color: #1b1b1b; */
     /* color: white; */
+    /* background-color: #fae19d;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 a {

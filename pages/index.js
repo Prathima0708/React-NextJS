@@ -1,16 +1,8 @@
 // import Head from "next/head";
 // import Link from "next/link";
 
-import NotesList from "../components/NotesApp/NotesList";
-import styles from "../components/NotesApp/Notes.module.css";
-import { useState } from "react";
-import WeatherApp from "../components/WeatherApp/WeatherApp";
-import Counter from "../components/Practice/Counter";
-import SearchBar from "../components/CryptoCurrency/SearchBar";
-import Coins from "../components/CryptoCurrency/Coins";
-import CoinList from "../components/CryptoCurrency/CoinList";
-import Layout from "../components/CryptoCurrency/Layout";
-import Counter1 from "../components/Practice/Counter1";
+import ArticleList from "../components/NewsExample/Article/ArticleList";
+import AddUser from "../components/Practice/AddUser";
 
 // export default function Home() {
 //   return (
@@ -124,67 +116,25 @@ import Counter1 from "../components/Practice/Counter1";
 
 // export default HomePage;
 
-function HomePage({ filteredCoins }) {
-  // const [search, setSearch] = useState("");
-  // const allCoins = filteredCoins.filter((coin) =>
-  //   coin.name.toLowerCase().includes(search.toLowerCase())
-  // );
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   setSearch(e.target.value.toLowerCase());
-  // };
-  const [notes, setNotes] = useState([
-    {
-      id: Math.floor(Math.random() * 10),
-      text: "This is my first Note",
-      date: "15/06/2022",
-    },
-    {
-      id: Math.floor(Math.random() * 10),
-      text: "This is my second Note",
-      date: "15/06/2022",
-    },
-    {
-      id: Math.floor(Math.random() * 10),
-      text: "This is my third Note",
-      date: "15/06/2022",
-    },
-  ]);
-  const addNote = (text) => {
-    const date = new Date();
-    const newNote = {
-      id: Math.floor(Math.random() * 10),
-      text: text,
-      date: date.toLocaleDateString(),
-    };
-    const newNotes = [...notes, newNote];
-    setNotes(newNotes);
-  };
+function HomePage({ articles }) {
+  console.log(articles);
   return (
-    // <Layout>
-    //   <div className="flex flex-col items-center mt-2">
-    //     <SearchBar type="text" placeholder="search" onChange={handleChange} />
-    //     <CoinList filteredCoins={allCoins} />
-    //   </div>
-    // </Layout>
-
-    <div className={styles.contaimer}>
-      <NotesList notes={notes} onAddNote={addNote} />
-      <Counter1 />
-    </div>
+    <>
+      <ArticleList articles={articles} />
+    </>
   );
 }
 
 export default HomePage;
 
-// export const getServerSideProps = async () => {
-//   const res = await fetch(
-//     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
-//   );
-//   const filteredCoins = await res.json();
-//   return {
-//     props: {
-//       filteredCoins,
-//     },
-//   };
-// };
+export const getStaticProps = async () => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts?_limit=6`
+  );
+  const articles = await res.json();
+  return {
+    props: {
+      articles,
+    },
+  };
+};

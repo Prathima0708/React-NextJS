@@ -18,11 +18,11 @@ code {
 	justify-content: space-between;
 }
 
-.dark-mode {
+.dark_mode {
 	background-color: black;
 }
 
-.dark-mode h1 {
+.dark_mode h1 {
 	color: white;
 }
 
@@ -33,6 +33,7 @@ code {
 	padding-right: 15px;
 	padding-left: 15px;
 	min-height: 100vh;
+	
 }
 
 .notes_list {
@@ -107,6 +108,7 @@ code {
 	border-radius: 10px;
 	padding: 5px;
 	margin-bottom: 1.5em;
+	margin-top: 10px;
 }
 
 .search input {
